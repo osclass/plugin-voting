@@ -3,7 +3,7 @@
 Plugin Name: Voting
 Plugin URI: http://www.osclass.org/
 Description: Voting system
-Version: 1.1.1
+Version: 1.2
 Author: OSClass
 Author URI: http://www.osclass.org/
 Short Name: voting
@@ -363,7 +363,7 @@ Plugin update URI: voting
     function voting_conf_title($title) {
         return __('Configuration', 'voting');
     }
-    
+
      /**
      * ADMIN MENU
      */

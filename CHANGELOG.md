@@ -1,7 +1,7 @@
 Changelog Voting plugin
 =========================
 
-##version 1.2.0 - 19/07/2013
+##version 1.2 - 19/07/2013
 
 * Minor improvements
 * Users cannot rate their items
