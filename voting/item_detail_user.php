@@ -39,17 +39,21 @@ $path = osc_base_url().'/oc-content/plugins/'.  osc_plugin_folder(__FILE__); ?>
             padding: 5px;
         }
 
-        .votes_txt_vote {
+        #wrapper_voting_plugin .votes_txt_vote {
             display: inline;
             float: left;
         }
 
-        .votes_results {
+        #wrapper_voting_plugin  .votes_results {
             display: inline;
             float: left;
         }
 
-        .votes_results img {
+        #wrapper_voting_plugin .votes_results img {
+            position: inherit;
+            width: inherit;
+            border: none;
+            
             height: auto;
             margin-top: -1px;
             margin-left: -2px;
@@ -61,34 +65,34 @@ $path = osc_base_url().'/oc-content/plugins/'.  osc_plugin_folder(__FILE__); ?>
             float: left;
         }
 
-        .votes_star .vote1 {
+        #wrapper_voting_plugin .votes_star .vote1 {
             width: 15px;
             z-index: 14;
         }
-        .votes_star .vote2 {
+        #wrapper_voting_plugin .votes_star .vote2 {
             width: 30px;
             z-index: 13;
         }
-        .votes_star .vote3 {
+        #wrapper_voting_plugin .votes_star .vote3 {
             width: 45px;
             z-index: 12;
         }
-        .votes_star .vote4 {
+        #wrapper_voting_plugin .votes_star .vote4 {
             width: 60px;
             z-index: 11;
         }
-        .votes_star .vote5 {
+        #wrapper_voting_plugin .votes_star .vote5 {
             width: 75px;
             z-index: 10;
         }
 
-        .votes_star a {
+        #wrapper_voting_plugin .votes_star a {
             display: block;
             height: 19px;
             position: absolute;
         }
 
-        .votes_star {
+        #wrapper_voting_plugin .votes_star {
             background: url("<?php echo osc_base_url().'/oc-content/plugins/'.  osc_plugin_folder(__FILE__);?>img/ico_vot_vo.gif") repeat scroll 0 0 transparent;
             display: inline;
             float: left;
@@ -98,13 +102,13 @@ $path = osc_base_url().'/oc-content/plugins/'.  osc_plugin_folder(__FILE__); ?>
             width: 76px;
         }
 
-        .votes_vote {
+        #wrapper_voting_plugin .votes_vote {
             display: inline;
             float: left;
             margin-right: 5px;
         }
 
-        .votes_star a:hover {
+        #wrapper_voting_plugin .votes_star a:hover {
             background: url("<?php echo osc_base_url().'/oc-content/plugins/'.  osc_plugin_folder(__FILE__);?>img/ico_vot_ov.gif") repeat-x scroll 0 0 transparent;
         }
 
