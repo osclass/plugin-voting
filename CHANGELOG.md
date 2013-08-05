@@ -1,6 +1,12 @@
 Changelog Voting plugin
 =========================
 
+##version 1.2.1 - 05/08/2013
+
+* Style fixes.
+* Fixed missed admin folder.
+* Fixed Missing argument.
+
 ##version 1.2 - 19/07/2013
 
 * Minor improvements
