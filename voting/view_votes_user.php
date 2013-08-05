@@ -1,7 +1,17 @@
 <?php if ( ! defined('ABS_PATH')) exit('ABS_PATH is not loaded. Direct access is not allowed.');
+        $_userId = null;
+        if( isset($vote['userId']) ) {
+            $_userId = $vote['userId'];
+        } else if(Params::getParam('userId')!=''){
+            $_userId = Params::getParam('userId');
+        }
+        if($_userId==null) {
+            exit;
+        }
+
         $path = osc_base_url().'/oc-content/plugins/'.  osc_plugin_folder(__FILE__); ?>
         <div class="votes_stars">
-            <div style="float:left;padding-right: 5px;"><?php $aux = User::newInstance()->findByPrimaryKey($vote['userId']); echo $aux['s_name']; ?></div>
+            <div style="float:left; padding-right:5px;"><?php $aux = User::newInstance()->findByPrimaryKey($_userId); echo $aux['s_name']; ?></div>
             <?php if( $vote['can_vote'] ) { ?>
             <div class="votes_vote">
                 <div class="votes_star">
@@ -13,7 +23,7 @@
                         <a href="#" rel="nofollow" title="<?php _e('Essential', 'voting');?>" class="aPvu vote5"></a>
                     </span>
                 </div>
-                <img width="1" height="19" alt="" src="<?php echo $path; ?>/img/ico_separator.gif">
+                <img style="position: inherit;width: inherit;border: none;" width="1" height="19" alt="" src="<?php echo $path; ?>/img/ico_separator.gif">
             </div>
             <?php } ?>
             <div class="votes_results">

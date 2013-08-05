@@ -13,7 +13,7 @@
                         <a href="#" rel="nofollow" title="<?php _e('Essential', 'voting');?>" class="aPs vote5"></a>
                     </span>
                 </div>
-                <img width="1" height="19" alt="" src="<?php echo $path; ?>/img/ico_separator.gif">
+                <img style="position: inherit;width: inherit;border: none;" width="1" height="19" alt="" src="<?php echo $path; ?>/img/ico_separator.gif">
             </div>
             <?php } ?>
             <div class="votes_results">
