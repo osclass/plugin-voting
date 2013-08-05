@@ -111,19 +111,19 @@ Plugin update URI: voting
      */
     function can_vote($itemId, $userId, $hash)
     {
-
-        if( $userId == 'NULL' ) {
+        if( $userId == 'NULL' || (string)$userId === "0") {
             $result = Modelvoting::newInstance()->getItemIsRated($itemId, $hash);
         } else {
             $result = Modelvoting::newInstance()->getItemIsRated($itemId, $hash, $userId);
         }
 
-        if( count($result) > 0 )
+        if( count($result) > 0 ) {
             return false;
-        else if ( osc_logged_user_id() == osc_item_user_id() )   /* my mod to prevent user voting on their own listing  */
+        } else if ( osc_logged_user_id() != 0 && osc_logged_user_id() == osc_item_user_id() ) {  /* my mod to prevent user voting on their own listing  */
             return false;
-        else
+        } else {
             return true;
+        }
     }
 
     /**
@@ -140,7 +140,6 @@ Plugin update URI: voting
             );
             $results = get_votes($filter);
             if(count($results) > 0 ) {
-                error_log( print_r($results, true) );
                 $locale  = osc_current_user_locale();
                 require 'set_results.php';
             }
@@ -194,12 +193,20 @@ Plugin update URI: voting
 
     /**
      * Show form to vote a seller if item belongs to a registered user. (itemDetail)
+     *
+     * @param type $item item array or userId
      */
-    function voting_item_detail_user($userId)
+    function voting_item_detail_user( $item=null )
     {
-        if( is_array($userId) ) {
+        $userId = null;
+
+        if($item == null) {
             $userId = osc_item_user_id();
-        } else if($userId == null && !is_numeric($userId) ) {
+        } else if(is_numeric($item) ) {
+            $userId = $item;
+        } else if( is_array($item) ) {
+            $userId = $item['fk_i_user_id'];
+        } else {
             exit;
         }
 
